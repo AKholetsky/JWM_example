@@ -10,16 +10,27 @@ import io.github.humbleui.jwm.skija.LayerGLSkija;
 import io.github.humbleui.skija.Paint;
 import io.github.humbleui.skija.Surface;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Consumer;
 
 public class Main {
     public static void main(String[] args) {
         App.start(() -> {
+            System.out.println("begin");
             Window window = App.makeWindow();
             window.setEventListener(new EventHandler(window));
             window.setVisible(true);
+            System.out.println("end");
         });
 
+        List list = new ArrayList<Long>();
+        list.add(1L);
+        list.add(1.0);
+        list.add(new Object());
+        list.add("I am long");
+
+        System.out.println(list.size());
 
     }
 
@@ -35,7 +46,7 @@ public class Main {
             
         @Override
         public void accept(Event t) {
-            System.out.println(t);
+//            System.out.println(t);
 
             if (t instanceof EventWindowCloseRequest) {
                 window.close();
